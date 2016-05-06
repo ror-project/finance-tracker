@@ -1,6 +1,7 @@
 class Account < ActiveRecord::Base
     belongs_to :user
     
+    
     validates :bank_name ,presence: true
     validates :start_balance,numericality: true
     validates :account_number,presence: true,length: {maximum: 34}

@@ -1,8 +1,11 @@
 class AccountsController < ApplicationController
   
+  attr_accessor :account_array
+  
+
   def new
    @account=Account.new
-   @accounts=Account.all
+   @accounts=Account.where user_id: current_user     #This will fetch only the records of current user from Account Table
   end  
   
 
@@ -17,7 +20,7 @@ class AccountsController < ApplicationController
   end
   
     def account_params
-      params.require(:account).permit(:bank_name,:account_number, :account_type, :start_balance)
+      params.require(:account).permit(:bank_name,:account_number, :account_type,:user_id,:start_balance)
     end
    
 

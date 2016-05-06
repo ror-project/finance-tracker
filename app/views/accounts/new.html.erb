@@ -6,7 +6,7 @@
  <div class="panel-body">
 <%=form_for(@account) do |f|%>
 <div id="form_div">
-<!--      created partial for displaying teh error message nad used this syntax to avoid template missing error-->
+<!--      created partial for displaying the error message nad used this syntax to avoid template missing error-->
 <div class="form-group">
 <%= f.label :bank_name%> : 
 <%= f.text_field :bank_name ,class: "form-control"  %></div>
@@ -17,6 +17,7 @@
 <%= f.label :account_type%> :
 <%= f.select :account_type, [["Select an Account Type",""],['Checking  Account','checking'],['Saving Account','saving'],['Credit Card','card'],['Cash','cash']],{},{class:"form-control"} %>
 </div>
+<%= f.hidden_field :user_id, :value => current_user.id %>  <!--This will set the :user_id colum as users id-->
 <div class="form-group">
 <%= f.label :start_balance%>:
 <%= f.text_field :start_balance,class:"form-control" %>
@@ -35,15 +36,13 @@
     <th>Account Number</th>
     <th>Account Type</th>
     <th>Start Balance</th>
-    </tr></thead><tbody>
-    <% @accounts.each do |account| %>
+    </tr></thead><tbody><% for account in @accounts%>
     <tr>
     <td><%= account.bank_name %></td>
     <td><%= account.account_number%></td>
     <td><%= account.account_type %></td>
     <td><%= account.start_balance %></td>
-    </tr>
-    <% end %></tbody>
+    </tr><%end%></tbody>
     </table>
 <%end%>
 </div>

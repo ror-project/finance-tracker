@@ -1,0 +1,50 @@
+<body class="ac_body">
+<div class="panel panel-default">
+<div class="panel-heading">    
+<p>Add your bank account:</p>
+</div>
+ <div class="panel-body">
+<%=form_for(@account) do |f|%>
+<div id="form_div">
+<!--      created partial for displaying teh error message nad used this syntax to avoid template missing error-->
+<div class="form-group">
+<%= f.label :bank_name%> : 
+<%= f.text_field :bank_name ,class: "form-control"  %></div>
+<div class="form-group"> 
+<%= f.label :account_number%> : 
+<%= f.text_field :account_number,class: "form-control"  %></div>
+<div class="form-group">
+<%= f.label :account_type%> :
+<%= f.select :account_type, [["Select an Account Type",""],['Checking  Account','checking'],['Saving Account','saving'],['Credit Card','card'],['Cash','cash']],{},{class:"form-control"} %>
+</div>
+<div class="form-group">
+<%= f.label :start_balance%>:
+<%= f.text_field :start_balance,class:"form-control" %>
+</div>
+<div class="form-group">
+<%= f.submit "Add an account", class: "btn btn-primary" %></td><tr>
+</div>
+</div>
+<%end%>
+</div>
+</div>
+<div  class="data_table">
+<%if !@accounts.blank? %>
+    <table><thead><tr>
+    <th>Bank Name</th>
+    <th>Account Number</th>
+    <th>Account Type</th>
+    <th>Start Balance</th>
+    </tr></thead><tbody>
+    <% @accounts.each do |account| %>
+    <tr>
+    <td><%= account.bank_name %></td>
+    <td><%= account.account_number%></td>
+    <td><%= account.account_type %></td>
+    <td><%= account.start_balance %></td>
+    </tr>
+    <% end %></tbody>
+    </table>
+<%end%>
+</div>
+</body>

@@ -6,12 +6,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav col-md-6">
           <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
           <li><%= link_to "My Profile", edit_registration_path(current_user)  %></li>
           <li><%= link_to "My Friends", my_friends_path  %></li>
+          <li><%= link_to "My Accounts", new_account_path %></li>     <!--Added MY Accounts Tab-->
         </ul>
         <ul class="nav navbar-right col-md-4">
           <li class="col-md-8 user-name text-right">

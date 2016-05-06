@@ -1,0 +1,39 @@
+<head><style>
+/*Styles for the error page*/
+  #error_explanation {
+  color: red;
+  font-weight:italic;
+  ul {
+    font-family:"Times New Roman", Georgia, Serif;
+    margin: 0 0 30px 0;
+  }
+}
+
+.alert-danger {
+border: 1px solid #ffe6e9;
+margin:10px 1000px 10px 10px;
+padding:10px;
+border-radius:3%/3%;
+background-color: #ffe6e9;
+color:brown;
+
+}
+</style></head>
+<body><br/>
+<h1 style="color:brown;">ERROR</h1>
+<p>
+<% if @account.errors.any? %>
+<div id="error_explanation">
+    <div class="alert-danger">
+      The form contains <%= pluralize(@account.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @account.errors.full_messages.each do |msg| %>
+      <li><%=msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+<p><%= link_to "Back" ,new_account_path %></p>
+</p>
+</body>

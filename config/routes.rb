@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :accounts
+
+  #get 'accounts/new'
+
+  #get 'accounts/create'
 
   devise_for :users, :controllers => { :registrations => "user/registrations" }
   resources :user_stocks, except: [:show, :edit, :update]

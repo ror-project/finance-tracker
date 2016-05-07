@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Monthly Expense Tracker</h1>
+
+<div class="container">
+  <table id="table_data" class="table">
+    <thead>
+      <tr class="success">
+        <th>Year</th>
+        <th>Month</th>
+        <th>Income</th>
+        <th>Total Expense</th>
+        <th>Savings</th>
+        <!--
+        <th>Grocery</th>
+        <th>Mortgage</th>
+        <th>Gas</th>
+        <th>Shopping</th>
+        <th>Restaurant</th>
+        <th>Utilities</th>
+        <th>Other</th>
+        <th>Notes</th>
+        -->
+        <th colspan="3"></th>
+        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @expense_trackers.each do |expense_tracker| %>
+        <tr class = "active">
+          <td><%= expense_tracker.year %></td>
+          <td><%= expense_tracker.month %></td>
+          <td><%= expense_tracker.income %></td>
+          <td><%= @total_expense[expense_tracker.month] %></td> <!-- Display hash -->
+          <td><%= @savings[expense_tracker.month] %></td>
+          <td><%#= expense_tracker.income - @total_expense[expense_tracker.month] %></td>
+          <td><%#= expense_tracker.grocery %></td> 
+          <td><%#= expense_tracker.mortgage %></td>
+          <td><%#= expense_tracker.gas %></td>
+          <td><%#= expense_tracker.shopping %></td>
+          <td><%#= expense_tracker.restaurant %></td>
+          <td><%#= expense_tracker.utilities %></td>
+          <td><%#= expense_tracker.other %></td>
+          <td><%#= expense_tracker.notes %></td>
+        
+          <td>
+            <button id="show_button" type="button" class="btn btn-success btn-md">
+              <%= link_to 'Show Details', expense_tracker %>
+            </button>
+          </td>
+          
+          <td>
+            <button id="edit_button" type="button" class="btn btn-warning btn-md">
+              <%= link_to 'Edit', edit_expense_tracker_path(expense_tracker) %>
+            </button>    
+          </td>
+          
+          <td>
+            <button id="delete_button" type="button" class="btn btn-danger btn-md">
+              <%= link_to 'Delete', expense_tracker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </button>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<button id ="new_button" type="button" class="btn btn-info btn-lg">
+  <%= link_to 'Add New Monthly Expenses', new_expense_tracker_path %>
+</button>
+
+<div class="container" id="div_chart">
+  <div class="row">
+    <div class="col-xs-6">
+      <h3><span class="label label-default">Monthly Income Chart</span></h3>
+      <%= pie_chart @expense_trackers.group(:month).sum(:income) %>
+    </div>
+    <div class="col-xs-6">
+      <h3><span class="label label-default">Monthly Expense Chart</span></h3>
+      <%= pie_chart @total_expense %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row" id="chart_savings">
+  <!-- Bar/column Chart for Savings --> 
+  <div class="col-xs-6">
+    <h3><span class="label label-default">Monthly Savings Chart</span></h3>
+      <%= column_chart @savings %>
+  </div>
+</div>
+
+

@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @expense_tracker.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @expense_tracker.month %>
+</p>
+
+<p>
+  <strong>Income:</strong>
+  <%= @expense_tracker.income %>
+</p>
+
+<p>
+  <strong>Grocery:</strong>
+  <%= @expense_tracker.grocery %>
+</p>
+
+<p>
+  <strong>Mortgage:</strong>
+  <%= @expense_tracker.mortgage %>
+</p>
+
+<p>
+  <strong>Gas:</strong>
+  <%= @expense_tracker.gas %>
+</p>
+
+<p>
+  <strong>Shopping:</strong>
+  <%= @expense_tracker.shopping %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @expense_tracker.restaurant %>
+</p>
+
+<p>
+  <strong>Utilities:</strong>
+  <%= @expense_tracker.utilities %>
+</p>
+
+<p>
+  <strong>Other:</strong>
+  <%= @expense_tracker.other %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @expense_tracker.notes %>
+</p>
+
+<button id="edit_button" type="button" class="btn btn-warning btn-md">
+  <%= link_to 'Edit', edit_expense_tracker_path(@expense_tracker) %>
+</button>
+
+<button id="back_button" type="button" class="btn btn-primary btn-md">
+  <%= link_to 'Back', expense_trackers_path %>
+</button>
+
+<button id="delete_button" type="button" class="btn btn-danger btn-md">
+  <%= link_to 'Delete', @expense_tracker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</button>

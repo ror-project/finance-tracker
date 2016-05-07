@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "FinanceTracker" %></title>
+  
+    <title><%= content_for?(:title) ? yield(:title) : "FinanceTracker" %>  </title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -35,6 +36,13 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
+    
+    <%# Chartkick can use either Google Charts or Highcharts for charting. 
+  In this example we use Google Charts. We also utilize Bootstrap for a cleaner look and feel. %>
+  <%= javascript_include_tag "//www.google.com/jsapi" %>
+  <%= javascript_include_tag "application", "chartkick" %>
+  <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
   </head>
   <body>
 
@@ -44,12 +52,19 @@
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
+          
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <br/><br/>
+        <nav>
+            <%= render_shareable :buttons=> ['pinterest', 'twitter', 'facebook', 'tumblr', 'linkedin'] %>     <!--New Addition -->
+        </nav>
+        <div>
+        <strong style="color:white">&copy; Company 2015</strong></p>                      <!--Changed the color and font weight-->
+        </div>
       </footer>
 
     </div> <!-- /container -->

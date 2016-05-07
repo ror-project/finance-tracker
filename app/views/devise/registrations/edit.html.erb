@@ -32,10 +32,11 @@
         <%= f.password_field :current_password, class: "form-control" %>
       </div>
       <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %>
+      <%= button_tag "Reset", type: :reset, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 
-<p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
+<p style="color:white"><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
 
 <%= link_to t('.back', :default => 'Back'), :back %>

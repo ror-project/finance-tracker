@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 .results-block {
   display: inline-block;
 }
@@ -31,7 +32,7 @@
   }
 }
 
-/*Styling for Accounts Page*/
+/*Newly Added :Styling for Accounts Page*/
 
  @font-face {
   font-family: 'devroye';
@@ -93,6 +94,7 @@ transition: all 1s;            //Added Animation
 border-radius: 5px;
 box-shadow: 3px 3px #808080;
 }
+
 
 }
 

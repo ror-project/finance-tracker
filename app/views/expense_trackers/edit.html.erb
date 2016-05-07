@@ -1,0 +1,11 @@
+<h1>Editing Expense Tracker</h1>
+
+<%= render 'form' %>
+
+<button id="show_button" type="button" class="btn btn-success btn-md">
+  <%= link_to 'Show Details', @expense_tracker %>
+</button>
+
+<button id="back_button" type="button" class="btn btn-primary btn-md">
+  <%= link_to 'Back', expense_trackers_path %>
+</button>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  month: MyString
+  income: 1
+  grocery: 1
+  mortgage: 1
+  gas: 1
+  shopping: 1
+  restaurant: 1
+  utilities: 1
+  other: 1
+  notes: MyText
+
+two:
+  year: 1
+  month: MyString
+  income: 1
+  grocery: 1
+  mortgage: 1
+  gas: 1
+  shopping: 1
+  restaurant: 1
+  utilities: 1
+  other: 1
+  notes: MyText

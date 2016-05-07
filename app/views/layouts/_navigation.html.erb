@@ -1,5 +1,6 @@
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
+      <%= image_tag("Logo1.jpg", :alt => "ASK") %>
     <%= link_to 'Finance Tracker', root_path, class: "navbar-brand" %>
     <% if current_user %>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -13,7 +14,8 @@
           <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
           <li><%= link_to "My Profile", edit_registration_path(current_user)  %></li>
           <li><%= link_to "My Friends", my_friends_path  %></li>
-          <li><%= link_to "My Accounts", new_account_path %></li>     <!--Added MY Accounts Tab-->
+          <li><%= link_to "My Accounts", new_account_path %></li>         <!--Added MY Accounts Tab-->
+          <li><%= link_to "My Expenses", expense_trackers_path %></li>     <!--Added MY Expense tracker Tab-->
         </ul>
         <ul class="nav navbar-right col-md-4">
           <li class="col-md-8 user-name text-right">

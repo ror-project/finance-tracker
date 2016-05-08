@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
   
-  attr_accessor :account_array
-  
 
   def new
    @account=Account.new

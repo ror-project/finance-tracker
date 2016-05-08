@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
   
-  has_many :accounts,:class_name => "Account"
+  has_many :accounts
   
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)

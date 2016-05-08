@@ -4,6 +4,10 @@
       <th>Name</th>
       <th>Symbol</th>
       <th>Current Price</th>
+      <th>Buying Price</th>
+      <th>Selling Price</th>
+      <th>Total Shares</th>
+      <th>Profit/Loss</th>
       <% if @user.id == current_user.id %>
       <th>Actions</th>
       <% end %>
@@ -15,6 +19,28 @@
       <td><%= user_stock.name %></td>
       <td><%= user_stock.ticker %></td>
       <td><%= user_stock.price %></td>
+      
+      <td><%= user_stock.buying_price %> 
+         <%= text_field_tag :buying_price, params[:buying_price], placeholder: "0.0", :size =>5, autofocus: true,
+                                                          class: 'form-control search-box input-sm' %>
+      
+      </td>
+      <td><%= user_stock.selling_price %>
+        <%= text_field_tag :selling_price, params[:selling_price], placeholder: "0.0", :size =>5, autofocus: true,
+                                                          class: 'form-control search-box input-sm' %>
+                                                          
+      </td>
+      <td><%= user_stock.total_shares %>
+        <%= text_field_tag :total_shares, params[:total_shares], placeholder: "0.0", :size =>5, autofocus: true,
+                                                          class: 'form-control search-box input-sm' %>
+      </td>
+      <td><%= user_stock.gain %>
+        <%= text_field_tag :gain, params[:gain], placeholder: "0.0", :size =>5, autofocus: true,
+                                                          class: 'form-control search-box input-sm' %>
+      </td>
+      
+      
+      
       <% if @user.id == current_user.id %>
       <td>
         <%= link_to 'Delete', user_stock_path(user_stock), 

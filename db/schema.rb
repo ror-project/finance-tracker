@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507094937) do
+ActiveRecord::Schema.define(version: 20160508111702) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "bank_name"
@@ -50,8 +50,12 @@ ActiveRecord::Schema.define(version: 20160507094937) do
     t.string   "ticker"
     t.string   "name"
     t.decimal  "last_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "buying_price"
+    t.integer  "selling_price"
+    t.integer  "total_shares"
+    t.integer  "gain"
   end
 
   create_table "user_stocks", force: :cascade do |t|
